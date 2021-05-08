@@ -24,17 +24,21 @@ export const Signup = () => {
             <Input
               type={INPUT_TYPES.TEXT}
               label={FORM_LABELS.FIRST_NAME}
+              disabled
               required
+              minLength='3'
             />
             <Input
               type={INPUT_TYPES.TEXT}
               label={FORM_LABELS.LAST_NAME}
               required
+              minLength='3'
             />
             <Input
               type={INPUT_TYPES.EMAIL}
               label={FORM_LABELS.EMAIL}
               required
+              minLength='3'
             />
             <Input type={INPUT_TYPES.TEXT} label={FORM_LABELS.ORGANIZATION} />
           </div>
