@@ -1,37 +1,23 @@
-import React, { useEffect, useState } from "react";
-import "./index.scss";
-export const DEFAULT_OPTION = "- SELECT ONE -";
-export const Select = ({
-  id = "custom-dropdown",
-  label = "label",
-  options = ["Yes", "No"]
-}) => {
-  const [data, setData] = useState(null);
-  const [selected, setSelected] = useState(null)
-  useEffect(() => {
-    if (!data) {
-     if(!selected) {
-      setData([DEFAULT_OPTION, ...options])
-     }
-    }
-  }, [options,data,selected]);
-  const onChange = (e) => {
-    setData(data.filter(f=> f !== DEFAULT_OPTION))
-    setSelected(e.target.value)
-  }
-  return (
-    <div className="custom-select-container">
-      <label>{label}</label>
-      {data && (
-        <select onChange={onChange} className="custom-select" name={id} id={id}>
-          {data.map((o) => (
-            <option className="custom-option" key={o} value={o}>
-              {o}
-            </option>
-          ))}
-        </select>
-      )}
-    </div>
-  );
+import React, { useEffect, useState } from 'react';
+import Select, { components } from 'react-select';
+import { DropdownIndicator, CustomOption,  IndicatorSeparator, options, IndicatorContainer, Menu  } from './helper';
+import './index.scss';
+export const DEFAULT_OPTION = '- SELECT ONE -';
+
+export const CustomSelect = ({ label, required }) => {
+	return (
+		<div className="cmp-select-container">
+			<label className="cmp-input-label">
+				{label}
+				{required ? '*' : ''}
+			</label>
+			<Select
+				className="cmp-select"
+				placeholder="- SELECT ONE -"
+				options={options}
+				components={{ DropdownIndicator, IndicatorSeparator, Option: CustomOption, Menu  }}
+			/>
+		</div>
+	);
 };
-export default Select;
+export default CustomSelect;

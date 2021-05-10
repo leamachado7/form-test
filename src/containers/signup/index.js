@@ -8,7 +8,7 @@ import {
 } from "../../global/constants";
 
 import Input from "../../components/input";
-import Select from "../../components/select";
+import CustomSelect from "../../components/select";
 import Checkbox from '../../components/checkbox'
 export const Signup = () => {
 
@@ -43,11 +43,10 @@ export const Signup = () => {
             <Input type={INPUT_TYPES.TEXT} label={FORM_LABELS.ORGANIZATION} />
           </div>
           <div className="select-container">
-            <Select
+            <CustomSelect
               label={FORM_LABELS.EU_RESIDENT}
               options={SELECT_OPTIONS}
               required
-              appendDefault
             />
           </div>
           <div className="checkbox-wrapper">
