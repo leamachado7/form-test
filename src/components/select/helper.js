@@ -10,8 +10,8 @@ export const indicatorSeparatorStyle = {
 };
 
 const getArrowStyle = (isOpen) => {
-  return isOpen ? { transform: 'rotate(90deg)' } : { transform: 'rotate(0deg)'} 
-}
+	return isOpen ? { transform: 'rotate(90deg)' } : { transform: 'rotate(0deg)' };
+};
 export const DropdownIndicator = (props) => {
 	return (
 		<components.DropdownIndicator {...props}>
@@ -36,25 +36,24 @@ export const options = [
 ];
 
 function getLength(options) {
-  return options.reduce((acc, curr) => {
-    if (curr.options) return acc + getLength(curr.options);
-    return acc + 1;
-  }, 0);
+	return options.reduce((acc, curr) => {
+		if (curr.options) return acc + getLength(curr.options);
+		return acc + 1;
+	}, 0);
 }
 
-const menuHeaderStyle = {
-  padding: '8px 12px',
-};
-export const CustomOption = ({ innerProps, isDisabled, children}) =>
-  !isDisabled ? (
-    <div className='cmp-option' {...innerProps}>{children}</div>
-  ) : null;
+export const CustomOption = ({ innerProps, isDisabled, children }) =>
+	!isDisabled ? (
+		<div className="cmp-option" {...innerProps}>
+			{children}
+		</div>
+	) : null;
 
-export const Menu = props => {
-  const optionsLength = getLength(props.options);
-  return (
-    <Fragment>
-      <components.Menu {...props}>{props.children}</components.Menu>
-    </Fragment>
-  );
+export const Menu = (props) => {
+	const optionsLength = getLength(props.options);
+	return (
+		<Fragment>
+			<components.Menu {...props}>{props.children}</components.Menu>
+		</Fragment>
+	);
 };

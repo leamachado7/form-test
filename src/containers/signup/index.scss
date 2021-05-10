@@ -1,58 +1,58 @@
 .input-container {
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: auto;
-  align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: auto;
+	align-items: flex-start;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: center;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	text-align: center;
+	width: 100%;
 }
 
 .header-title {
-  font-weight:900;
-  color: black;
+	font-weight: 900;
+	color: black;
 }
 
 .header-subtitle {
-  font-weight: 600;
-  font-size: 20px;
-  margin-top: -2px;
+	font-weight: 600;
+	font-size: 20px;
+	margin-top: -2px;
 }
 
 .form-layout {
-  margin-top: 35px;
-  height: 100%;
+	margin-top: 35px;
+	height: 100%;
 }
 
 .btn-container {
-  display: flex;
-  width: 100%;
-  border: 1px solid red;
+	display: flex;
+	width: 100%;
+	border: 1px solid red;
 }
 
 .btn-submit {
-  border: 1px solid blue;
-  margin-right: 30px;
+	border: 1px solid blue;
+	margin-right: 30px;
 }
 
 .btn-reset {
-  border: 1px solid green;
+	border: 1px solid green;
 }
 
 .checkbox-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
 }

@@ -3,51 +3,54 @@ $background: url('./assets/texture.png');
 $primary-color: #404040;
 
 body {
-  padding: 0;
-  margin: auto;
-  color: $primary-color;
-  background-color: #f6f6f6;
-  font-family: 'Open Sans', sans-serif;
+	padding: 0;
+	margin: auto;
+	color: $primary-color;
+	background-color: #f6f6f6;
+	font-family: 'Open Sans', sans-serif;
 }
-input, textarea, select { font-family:inherit; }
+input,
+textarea,
+select {
+	font-family: inherit;
+}
 
 .app {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
 }
 
-
 .text-align-left > * {
-text-align: left !important;
+	text-align: left !important;
 }
 
 .container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  > * {
-    margin-bottom: 20px;
-  }
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	> * {
+		margin-bottom: 20px;
+	}
 }
 
 .page {
-  height: 100%;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+	height: 100%;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-self: center;
 }
 
 .center-vertical {
-  display: flex;
-  margin-top: 12px;
+	display: flex;
+	margin-top: 12px;
 }
 .cmp-input-label {
-  margin-bottom: 10px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+	margin-bottom: 10px;
+	font-weight: 800;
+	letter-spacing: 0.2em;
 }
