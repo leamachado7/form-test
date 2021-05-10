@@ -1,0 +1,36 @@
+.custom-checkbox {
+  width: 35px;
+  background-color: #803093;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.checkbox-title {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  font-size: 15px;
+}
+
+.img-check {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+/*# sourceMappingURL=index.css.map */
