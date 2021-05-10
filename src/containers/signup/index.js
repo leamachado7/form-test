@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect  } from 'react';
 import './index.scss';
 import { FORM_KEYS, FORM_LABELS, SELECT_OPTIONS, INPUT_TYPES } from '../../global/constants';
 
@@ -6,6 +6,17 @@ import Input from '../../components/input';
 import CustomSelect from '../../components/select';
 import Checkbox from '../../components/checkbox';
 export const Signup = () => {
+  const [form, setForm] = useState({
+
+  })
+  const onChangeCheckbox = (field, value) => {
+    const newForm = {...form}
+    newForm[field] = value;
+    setForm(newForm)
+  }
+  useEffect(() => {
+    console.log(form)
+  }, [form])
 	return (
 		<div className="page">
 			<div className="container">
@@ -24,9 +35,9 @@ export const Signup = () => {
 						<CustomSelect label={FORM_LABELS.EU_RESIDENT} options={SELECT_OPTIONS} required />
 					</div>
 					<div className="checkbox-wrapper">
-						<Checkbox id={FORM_KEYS.ADVANCES} label={FORM_KEYS.ADVANCES} />
-						<Checkbox id={FORM_KEYS.ALERTS} label={FORM_KEYS.ALERTS} />
-						<Checkbox id={FORM_KEYS.COMMS} label={FORM_KEYS.COMMS} />
+						<Checkbox onChange={onChangeCheckbox} value={form.advances} field='advances' label={FORM_KEYS.ADVANCES} />
+						<Checkbox onChange={onChangeCheckbox} value={form.alerts} field='alerts' label={FORM_KEYS.ALERTS} />
+						<Checkbox onChange={onChangeCheckbox} value={form.comms} field='comms' />
 					</div>
 					<div className="btn-container">
 						<button className="btn-submit">SUBMIT</button>
