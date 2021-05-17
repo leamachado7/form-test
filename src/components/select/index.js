@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import Select, { components } from 'react-select';
-import { DropdownIndicator, CustomOption,  IndicatorSeparator, options, IndicatorContainer, Menu  } from './helper';
-import './index.scss';
-export const DEFAULT_OPTION = '- SELECT ONE -';
 
-export const CustomSelect = ({ label, required }) => {
+import './index.scss';
+import CustomSelect from './customSelect'
+
+export const Select = ({ label, required, options }) => {
+	const [option, setOption] = useState({value: '', label: ''})
+	const [open, setOpen ] = useState(false);
+	const onClick = () => {
+		setOpen(!open);
+		console.log('set ', !open);
+	}
+	const onSelect = (o) => {
+		setOption(o)
+	}
 	return (
 		<div className="cmp-select-container">
 			<label className="cmp-input-label">
 				{label}
 				{required ? '*' : ''}
 			</label>
-			<Select
-				className="cmp-select"
-				placeholder="- SELECT ONE -"
-				options={options}
-				components={{ DropdownIndicator, IndicatorSeparator, Option: CustomOption, Menu  }}
-			/>
+			<CustomSelect onSelect={onSelect} selectedOption={option} options={options} open={open} onClick={onClick} />
 		</div>
 	);
 };
-export default CustomSelect;
+export default Select;

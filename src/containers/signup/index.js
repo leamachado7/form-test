@@ -3,7 +3,7 @@ import './index.scss';
 import { FORM_KEYS, FORM_LABELS, SELECT_OPTIONS, INPUT_TYPES } from '../../global/constants';
 import Button from '../../components/button'
 import Input from '../../components/input';
-import CustomSelect from '../../components/select';
+import Select from '../../components/select';
 import Checkbox from '../../components/checkbox';
 export const Signup = () => {
 	const [form, setForm] = useState({
@@ -12,7 +12,8 @@ export const Signup = () => {
 		email: '',
 		advances: false,
 		alerts: false,
-		comms: false
+		comms: false,
+
 	});
 	const onChange = (field, value) => {
 		const newForm = { ...form };
@@ -40,7 +41,7 @@ export const Signup = () => {
 						<Input field='organization' value={form.organization} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.ORGANIZATION} />
 					</div>
 					<div className="select-container">
-						<CustomSelect label={FORM_LABELS.EU_RESIDENT} options={SELECT_OPTIONS} required />
+						<Select label={FORM_LABELS.EU_RESIDENT} options={SELECT_OPTIONS}  required />
 					</div>
 					<div className="checkbox-wrapper">
 						<Checkbox
