@@ -8,7 +8,8 @@ $border-disabled: #989898;
 $border-invalid: #ee90a2;
 $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 $secondary-color: #803093;
-
+$secondary-color-hover:  #5f226e;
+$background-hover: #daebe8;
 .cmp-button {
   color: $primary-color;
   font-weight: 600;
@@ -20,8 +21,18 @@ $secondary-color: #803093;
   margin-right: 20px;
   width: 145px;
   height: 35px;
+  &:hover {
+    background-color: $background-hover !important;
+  }
+  cursor: pointer;
+
 }
 .btn-submit {
   color: white;
   background-color: $secondary-color !important;
+  &:hover {
+    background-color: $secondary-color-hover!important;
+  }
+ 
 }
+

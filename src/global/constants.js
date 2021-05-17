@@ -1,7 +1,7 @@
 export const FORM_KEYS = {
 	ADVANCES: 'ADVANCES',
 	ALERTS: 'ALERTS',
-	COMMS: 'COMMS'
+	COMMS: 'OTHER COMMUNICATIONS'
 };
 
 export const FORM_LABELS = {

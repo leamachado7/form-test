@@ -7,7 +7,7 @@ export const Checkbox = ({ label, required, onChange, value, field }) => {
 	};
 	return (
 		<div className="checkbox-container">
-			<div className={ value ? 'custom-checkbox-active' : 'custom-checkbox'} onClick={toggleState}>
+			<div className={ !value ? 'custom-checkbox-active' : 'custom-checkbox'} onClick={toggleState}>
 				<img className="img-check" alt="alternative" src={check} />
 			</div>
 			<label className="checkbox-title">
