@@ -1,17 +1,18 @@
-
-$border: #d0e8e6;
+$background: url("../assets/texture.png");
+$background-invalid: #efe0e0;
+$background-focus-select: rgb(225, 240, 239);
+$primary-color: #404040;
+$border-color: #d0e8e6;
 $border-active: #a1d2ce;
 $border-disabled: #989898;
 $border-invalid: #ee90a2;
-$background-invalid: #efe0e0;
-$background-focus-select: rgb(225,240,239);
 $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 
 .cmp-select {
   font-family: 'Open Sans', sans-serif !important;
   font-size: 16px;
   font-weight: bold;
-  border: 4px solid $border;
+  border: 4px solid $border-color;
   box-shadow: $box-shadow;
 }
 .cmp-select-container {

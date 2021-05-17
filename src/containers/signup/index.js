@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.scss';
 import { FORM_KEYS, FORM_LABELS, SELECT_OPTIONS, INPUT_TYPES } from '../../global/constants';
-
+import Button from '../../components/button'
 import Input from '../../components/input';
 import CustomSelect from '../../components/select';
 import Checkbox from '../../components/checkbox';
@@ -62,8 +62,8 @@ export const Signup = () => {
 							label={FORM_KEYS.COMMS} />
 					</div>
 					<div className="btn-container">
-						<button className="btn-submit">SUBMIT</button>
-						<button className="btn-reset">RESET</button>
+						<Button type='submit'>SUBMIT</Button>
+						<Button>RESET</Button>
 					</div>
 				</div>
 			</div>

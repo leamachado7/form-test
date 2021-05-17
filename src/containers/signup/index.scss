@@ -1,3 +1,4 @@
+
 .input-container {
 	display: flex;
 	flex-direction: row;
@@ -37,16 +38,11 @@
 .btn-container {
 	display: flex;
 	width: 100%;
-	border: 1px solid red;
+	padding : 4px;
 }
 
-.btn-submit {
-	border: 1px solid blue;
-	margin-right: 30px;
-}
-
-.btn-reset {
-	border: 1px solid green;
+.margin-r-10 {
+	margin-right: 10px;
 }
 
 .checkbox-wrapper {
