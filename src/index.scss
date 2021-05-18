@@ -1,4 +1,4 @@
-$background: url("../assets/texture.png");
+$background: url("./assets/texture.png");
 $background-invalid: #efe0e0;
 $background-focus-select: rgb(225, 240, 239);
 $primary-color: #404040;
@@ -12,10 +12,10 @@ body {
 	padding: 0;
 	margin: auto;
 	color: $primary-color;
-	background-color: #f6f6f6;
 	font-family: 'Open Sans', sans-serif;
 	letter-spacing: 0.2em;
-
+	background-image: $background;
+	background-size: cover;
 }
 
 input,

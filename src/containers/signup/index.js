@@ -7,6 +7,9 @@ import Select from '../../components/select';
 import Checkbox from '../../components/checkbox';
 import Loading from '../../components/loading'
 import { signUp } from '../../services/registerService'
+import { toast }  from 'react-toastify'
+const CONGRATS = 'Congrats! Signup successfully.'
+const RESET = 'Form has been reseted'
 const MIN = "3"
 const DEFAULT_FORM = {
 	firstName: '',
@@ -29,10 +32,12 @@ export const Signup = () => {
 
 	const onReset = () => {
 		setForm(DEFAULT_FORM)
+		toast.info(RESET)
 	}
 	const onSubmit = () => {
 		setLoading(true)
 		signUp(form).then(response => {
+			toast.success(CONGRATS)
 		}).catch(error => console.error(error)).finally(()=> { setLoading(false) })
 	}
 	return (
