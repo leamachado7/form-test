@@ -8,7 +8,7 @@ export const Input = ({ field, onChange, label, required, disabled, minLength, v
   return (
     <div className="cmp-input-container">
       <label className='cmp-input-label'>{label} {required ? '*' : ''}</label>
-      <input value={value} onChange={onChanged} minLength={minLength} disabled={disabled} className='cmp-input' type='text' />
+      <input className='cmp-input' value={value} onChange={onChanged} minLength={minLength} disabled={disabled} type='text' />
     </div>
   )
 }

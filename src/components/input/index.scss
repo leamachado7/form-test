@@ -7,23 +7,22 @@ $border-active: #a1d2ce;
 $border-disabled: #989898;
 $border-invalid: #ee90a2;
 $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
-
+$breakpoints: 512px;
 $max-width: 300px;
 .cmp-input-container {
   display: flex;
   flex-direction: column;
   height: 100px;
-  max-width: $max-width;
 }
 
 .cmp-input {
   height: 50px;
-  margin-right: 50px;
   border: 4px solid $border-color;
   appearance: none;
   box-shadow: $box-shadow;
   padding-bottom: 10px;
   margin-bottom: 10px;
+
 }
 input {
   height: 50px;
@@ -31,7 +30,6 @@ input {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.2em;
-
 }
 input:invalid {
   border: 4px solid $border-invalid;
@@ -47,3 +45,10 @@ input:focus {
   border-style: 0;
 }
 
+@media screen and (max-width: $breakpoints){
+
+.cmp-input-container {
+  max-width: 80%;
+  width: 100%;
+}
+}
