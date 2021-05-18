@@ -15,8 +15,9 @@ $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 }
 .custom-select-wrapper {
   position: relative;
+  box-shadow: $box-shadow;
   user-select: none;
-  width: 100%;
+  width: 350px;
   background-color: white;
   border: 4px solid $border-color;
   font-weight: 800 !important;
@@ -25,7 +26,7 @@ $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 .custom-select-wrapper-open {
   position: relative;
   user-select: none;
-  width: 100%;
+  width: 350px;
   background-color: white;
   border: 4px solid $border-active;
 }
@@ -103,6 +104,9 @@ $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 .custom-option:hover {
   cursor: pointer;
   background-color:$option-hover;
+}
+.selected-span {
+  font-weight: bold;
 }
 .selected {
   font-weight: bold;

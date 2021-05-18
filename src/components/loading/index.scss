@@ -10,7 +10,7 @@ $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
 $secondary-color: #803093;
 $secondary-color-hover:  #5f226e;
 $background-hover: #daebe8;
-.cmp-button {
+.loading {
   color: $primary-color;
   font-weight: 600;
   background-color: white;
@@ -19,25 +19,34 @@ $background-hover: #daebe8;
   box-shadow: $box-shadow;
   padding: 0px;
   margin-right: 20px;
-  width: 145px;
+  width: 155px;
   height: 35px;
-  &:hover {
-    background-color: $background-hover;
+  display: flex;
+  flex-direction: row;
+  justify-content :space-evenly;
+  align-items: center;
+  padding-right: 5px;
+  p {
+    padding-left: 15px;
   }
-  cursor: pointer;
+}
+
+
+.img-loading {
+  width: 60%;
+  height: 60%;
+  color: black;
+  fill: black;
 
 }
-.btn-submit {
-  color: white;
-  background-color: $secondary-color ;
-  &:hover {
-    background-color: $secondary-color-hover;
+.rotation {
+  animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
   }
- 
+  to {
+    transform: rotate(359deg);
+  }
 }
-
-.btn-disabled {
-  
-  pointer-events: none;
-}
-

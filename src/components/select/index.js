@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import CustomSelect from './customSelect'
 
-export const Select = ({ label, required, options }) => {
-	const [option, setOption] = useState({value: '', label: ''})
+export const Select = ({ label, required, options, onSelectOption }) => {
+	const [option, setOption] = useState({})
 	const [open, setOpen ] = useState(false);
 	const onClick = () => {
 		setOpen(!open);
-		console.log('set ', !open);
 	}
 	const onSelect = (o) => {
 		setOption(o)
+		onSelectOption(o)
 	}
 	return (
 		<div className="cmp-select-container">

@@ -1,4 +1,13 @@
 
+$breakpoint-tablet: 768px;
+.form-layout {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+
+}
 .input-container {
 	display: flex;
 	flex-direction: row;
@@ -17,6 +26,12 @@
 	justify-content: flex-start;
 	text-align: center;
 	width: 100%;
+
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	width: 80%;
 }
 
 .header-title {
@@ -41,10 +56,6 @@
 	padding : 4px;
 }
 
-.margin-r-10 {
-	margin-right: 10px;
-}
-
 .checkbox-wrapper {
 	display: flex;
 	flex-direction: row;
@@ -53,4 +64,46 @@
 	width: 100%;
 	margin-top: 50px;
 
+}
+.loading-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	align-self: center;
+	width: 100%;
+} 
+.select-container {
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: auto;
+	align-items: flex-start;
+}
+@media screen and (max-width: $breakpoint-tablet) {
+	.select-container {
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		display: flex;
+	}
+	.input-container {
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+	}
+	.checkbox-container {
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-self: flex-start;
+	}
+	.btn-container {
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+	}
 }

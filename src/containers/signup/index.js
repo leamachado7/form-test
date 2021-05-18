@@ -5,15 +5,19 @@ import Button from '../../components/button'
 import Input from '../../components/input';
 import Select from '../../components/select';
 import Checkbox from '../../components/checkbox';
+import Loading from '../../components/loading'
+const MIN = "3"
 export const Signup = () => {
+	const [loading, setLoading] = useState(true);
 	const [form, setForm] = useState({
 		firstName: '',
-		lastNAme: '',
+		lastName: '',
 		email: '',
+		organization: '',
 		advances: false,
 		alerts: false,
-		comms: false,
-
+		others: false,
+		euResident: ''
 	});
 	const onChange = (field, value) => {
 		const newForm = { ...form };
@@ -35,13 +39,13 @@ export const Signup = () => {
 				</div>
 				<div className="form-layout">
 					<div className="input-container">
-						<Input field='firstName' value={form.firstName} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.FIRST_NAME} required minLength="3" />
-						<Input field='lastName' value={form.lastName} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.LAST_NAME} required minLength="3" />
-						<Input field='email' value={form.email} onChange={onChange} type={INPUT_TYPES.EMAIL} label={FORM_LABELS.EMAIL} required minLength="3" />
+						<Input field='firstName' value={form.firstName} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.FIRST_NAME} required minLength={MIN} />
+						<Input field='lastName' value={form.lastName} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.LAST_NAME} required minLength={MIN} />
+						<Input field='email' value={form.email} onChange={onChange} type={INPUT_TYPES.EMAIL} label={FORM_LABELS.EMAIL} required minLength={MIN} />
 						<Input field='organization' value={form.organization} onChange={onChange} type={INPUT_TYPES.TEXT} label={FORM_LABELS.ORGANIZATION} />
 					</div>
 					<div className="select-container">
-						<Select label={FORM_LABELS.EU_RESIDENT} options={SELECT_OPTIONS}  required />
+						<Select label={FORM_LABELS.EU_RESIDENT} options={SELECT_OPTIONS} onSelectOption={o => onChange('euResident', o.value)} required />
 					</div>
 					<div className="checkbox-wrapper">
 						<Checkbox
@@ -49,6 +53,7 @@ export const Signup = () => {
 							onChange={onChange}
 							value={form.advances}
 							label={FORM_KEYS.ADVANCES}
+							required
 						/>
 						<Checkbox
 							field="alerts"
@@ -57,15 +62,19 @@ export const Signup = () => {
 							label={FORM_KEYS.ALERTS}
 						/>
 						<Checkbox
-							field="comms"
+							field="others"
 							onChange={onChange}
-							value={form.comms}
+							value={form.others}
 							label={FORM_KEYS.COMMS} />
 					</div>
 					<div className="btn-container">
-						<Button type='submit'>SUBMIT</Button>
-						<Button>RESET</Button>
+						<Button disabled={loading} type='submit'>SUBMIT</Button>
+						<Button disabled={loading} >RESET</Button>
+
 					</div>
+					<div className='loading-container'>{
+						loading && <Loading />
+					}</div>
 				</div>
 			</div>
 		</div>

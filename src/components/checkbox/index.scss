@@ -28,15 +28,13 @@ $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.55);
   box-shadow: $box-shadow;
 }
 .checkbox-title {
-  margin-top: 10px;
   margin-left: 20px;
 	font-weight: 800;
-	letter-spacing: 0.2em;
 }
 .checkbox-container {
   display: flex;
-  width: 100%;
   height: 100px;
+  width: 300px;
   font-size: 15px;
 }
 .img-check {
