@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import CustomSelect from './customSelect'
 
-export const Select = ({ label, required, options, onSelectOption }) => {
-	const [option, setOption] = useState({})
+export const Select = ({ label, required, options, onSelectOption  }) => {
+	const [option, setOption] = useState({value: '', label: ''})
 	const [open, setOpen ] = useState(false);
 	const onClick = () => {
 		setOpen(!open);

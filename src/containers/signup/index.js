@@ -6,30 +6,35 @@ import Input from '../../components/input';
 import Select from '../../components/select';
 import Checkbox from '../../components/checkbox';
 import Loading from '../../components/loading'
+import { signUp } from '../../services/registerService'
 const MIN = "3"
+const DEFAULT_FORM = {
+	firstName: '',
+	lastName: '',
+	email: '',
+	organization: '',
+	advances: false,
+	alerts: false,
+	others: false,
+	euResident: ''
+}
 export const Signup = () => {
-	const [loading, setLoading] = useState(true);
-	const [form, setForm] = useState({
-		firstName: '',
-		lastName: '',
-		email: '',
-		organization: '',
-		advances: false,
-		alerts: false,
-		others: false,
-		euResident: ''
-	});
+	const [loading, setLoading] = useState();
+	const [form, setForm] = useState(DEFAULT_FORM);
 	const onChange = (field, value) => {
 		const newForm = { ...form };
 		newForm[field] = value;
 		setForm(newForm);
 	};
-	useEffect(
-		() => {
-			console.log(form);
-		},
-		[form]
-	);
+
+	const onReset = () => {
+		setForm(DEFAULT_FORM)
+	}
+	const onSubmit = () => {
+		setLoading(true)
+		signUp(form).then(response => {
+		}).catch(error => console.error(error)).finally(()=> { setLoading(false) })
+	}
 	return (
 		<div className="page">
 			<div className="container">
@@ -68,8 +73,8 @@ export const Signup = () => {
 							label={FORM_KEYS.COMMS} />
 					</div>
 					<div className="btn-container">
-						<Button disabled={loading} type='submit'>SUBMIT</Button>
-						<Button disabled={loading} >RESET</Button>
+						<Button disabled={loading} type='submit' onClick={onSubmit}>SUBMIT</Button>
+						<Button disabled={loading} onClick={onReset} >RESET</Button>
 
 					</div>
 					<div className='loading-container'>{

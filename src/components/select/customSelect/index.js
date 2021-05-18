@@ -8,7 +8,7 @@ export const CustomSelect = ({ open, onClick, options, selectedOption, onSelect 
       <div className='custom-select'>
         <div className="custom-select__trigger" onClick={() => onClick()}>
           {
-            !selectedOption || !selectedOption.value && <span>- SELECT ONE -</span>
+            (!selectedOption || selectedOption.value === '') && <span>- SELECT ONE -</span>
           }
           {
             selectedOption && (<span key={selectedOption.value} className={`selected-span`}>
