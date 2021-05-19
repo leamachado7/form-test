@@ -30,13 +30,14 @@ export const Signup = () => {
 	const [loading, setLoading] = useState()
 	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 	const [form, setForm] = useState(DEFAULT_FORM)
+	// hacer solo en el submit.
 	const validateForm = form => {
 		const errors = {}
 		Object.keys(form).forEach( i => {
 			REQUIRED_FIELDS.forEach(j => {
 				if(i === j){
 					const v = form[j]
-					if(v === null || v === '' || v === false){
+					if(!v){
 						let e = 'This field cant be empty'
 						errors[j] = e
 					}
@@ -44,19 +45,25 @@ export const Signup = () => {
 			})
 		})
 		setErrors(errors)
+		return Object.keys(errors).length > 0
 	}
 	const onChange = (field, value) => {
 		const newForm = { ...form }
 		newForm[field] = value
 		setForm(newForm)
-		validateForm(newForm);
 	}
 	const onReset = () => {
 		setForm(DEFAULT_FORM)
 		setErrors(DEFAULT_ERRORS)
 		toast.info(RESET)
 	}
-	const onSubmit = () => {
+	const onSubmit = (a) => {
+		a.preventDefault();
+		const invalid = validateForm(form); // esto val al submit
+		if(invalid) {
+			toast.error("There are still errors to handle");
+			return;
+		}
 		setLoading(true)
 		signUp(form)
 			.then(() => {
@@ -67,9 +74,7 @@ export const Signup = () => {
 				setLoading(false)
 			})
 	}
-	const onSubmitCapture = (e) => {
-		e.preventDefault();
-	}
+	
 
 	return (
 		<div className="page">
@@ -78,7 +83,6 @@ export const Signup = () => {
 					<h1 className="header-title">Sign up for email updates</h1>
 					<p className="header-subtitle">*Indicates Required Field</p>
 				</div>
-				<form onSubmit={onSubmitCapture} onChange={e => console.log(e)}>
 					<div className="form-layout">
 						<div className="input-container">
 							<Input
@@ -152,17 +156,16 @@ export const Signup = () => {
 							/>
 						</div>
 						<div className="btn-container">
-							<Button disabled={loading} type="submit" onClick={onSubmit}>
+							<Button onClick={onSubmit} disabled={loading} type="submit">
 								{TXT_SUBMIT}
 							</Button>
-							<Button disabled={loading} onClick={onReset}>
+							<Button disabled={loading} onClick={onReset} type='button'>
 								{TXT_RESET}
 							</Button>
 						</div>
 						<div className="loading-container">{loading && <Loading />}</div>
 					</div>
 
-				</form>
 			</div>
 		</div>
 	)
