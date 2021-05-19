@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import './index.scss'
+import React, { useEffect } from 'react'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import Signup from './containers/signup'
 import CreateServer from './services/index'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import './index.scss'
 function App() {
-  const [server, setServer] = useState(null)
   useEffect(() => {
-    setServer(CreateServer());
+    CreateServer()
   } , [])
   return (
     <div className="app">
