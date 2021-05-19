@@ -13,3 +13,14 @@ export const DEFAULT_FORM = {
   others: false,
   euResident: '',
 }
+export const DEFAULT_ERRORS = {
+  firstName: null,
+  lastName: null,
+  email: null,
+  organization: null,
+  advances: null,
+  alerts: null,
+  others: null,
+  euResident: null,
+}
+export const REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'euResident', 'advances']

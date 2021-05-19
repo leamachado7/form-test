@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './index.scss';
 import CustomSelect from './customSelect'
 
-export const Select = ({ label, required, options, onSelectOption  }) => {
+export const Select = ({ label, required, options, onSelectOption, errors, field }) => {
 	const [option, setOption] = useState({ value: '', label: '' })
 	const [open, setOpen ] = useState(false);
 	const onClick = () => {
@@ -20,6 +20,9 @@ export const Select = ({ label, required, options, onSelectOption  }) => {
 				{required ? '*' : ''}
 			</label>
 			<CustomSelect onSelect={onSelect} selectedOption={option} options={options} open={open} onClick={onClick} />
+			{
+				errors && errors[field] && (	<label className="margin-top-20 cmp-error-label">{errors[field]}</label>)
+			}
 		</div>
 	);
 };
