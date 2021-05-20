@@ -9,6 +9,7 @@ import Checkbox from '../../components/checkbox'
 import Loading from '../../components/loading'
 
 import { signUp } from '../../services/registerService'
+import { validateForm } from '../../global/utils'
 
 import {
 	FORM_KEYS,
@@ -30,23 +31,7 @@ export const Signup = () => {
 	const [loading, setLoading] = useState()
 	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 	const [form, setForm] = useState(DEFAULT_FORM)
-	// hacer solo en el submit.
-	const validateForm = form => {
-		const errors = {}
-		Object.keys(form).forEach( i => {
-			REQUIRED_FIELDS.forEach(j => {
-				if(i === j){
-					const v = form[j]
-					if(!v){
-						let e = 'This field cant be empty'
-						errors[j] = e
-					}
-				}
-			})
-		})
-		setErrors(errors)
-		return Object.keys(errors).length > 0
-	}
+
 	const onChange = (field, value) => {
 		const newForm = { ...form }
 		newForm[field] = value
@@ -58,8 +43,9 @@ export const Signup = () => {
 		toast.info(RESET)
 	}
 	const onSubmit = (a) => {
-		a.preventDefault();
-		const invalid = validateForm(form); // esto val al submit
+		const newErrors = validateForm(form, REQUIRED_FIELDS);
+		setErrors(newErrors)
+		const invalid = Object.keys(newErrors).length  > 0
 		if(invalid) {
 			toast.error("There are still errors to handle");
 			return;
@@ -74,8 +60,11 @@ export const Signup = () => {
 				setLoading(false)
 			})
 	}
-	
-
+	const keyPress = e => {
+		if(e.key === 'Enter'){
+			onSubmit();
+		}
+	}
 	return (
 		<div className="page">
 			<div className="container">
@@ -83,7 +72,7 @@ export const Signup = () => {
 					<h1 className="header-title">Sign up for email updates</h1>
 					<p className="header-subtitle">*Indicates Required Field</p>
 				</div>
-					<div className="form-layout">
+					<div className="form-layout" onKeyPress={keyPress}>
 						<div className="input-container">
 							<Input
 								field="firstName"
