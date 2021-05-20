@@ -9,7 +9,7 @@ import Checkbox from '../../components/checkbox'
 import Loading from '../../components/loading'
 
 import { signUp } from '../../services/registerService'
-import { validateForm , checkEmail } from '../../global/utils'
+import { validateForm , checkEmail, checkName } from '../../global/utils'
 
 import {
 	FORM_KEYS,
@@ -49,6 +49,16 @@ export const Signup = () => {
 		const validEmail = checkEmail(form.email)
 		if(!validEmail){
 			toast.error("There is an error with the email");
+			return;
+		}
+		const validName = checkName(form.firstName)
+		if(!validName){
+			toast.error("There is an error with the first name");
+			return;
+		}
+		const validLastName = checkName(form.lastName)
+		if(!validLastName){
+			toast.error("There is an error with the last name");
 			return;
 		}
 		if(invalid) {
