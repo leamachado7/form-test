@@ -21,8 +21,27 @@ export const validateForm = (form, requiredFields) => {
             errors[i] = e;
           }
         }
+        if(i === 'firstName')
+        {
+          if(!checkName(v)){
+            e = 'First name is invalid'
+            errors[i] = e;
+
+          }
+        }
+        if(i === 'lastName'){
+          if(!checkName(v)){
+            e = 'Last name is invalid'
+            errors[i] = e;
+
+          }
+        }
       }
     })
   })
   return errors
+}
+export const checkName = name => {
+  const regex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g
+  return !!name.trim().match(regex)
 }
