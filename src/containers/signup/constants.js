@@ -23,4 +23,4 @@ export const DEFAULT_ERRORS = {
   others: null,
   euResident: null,
 }
-export const REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'euResident', 'advances']
+export const REQUIRED_FIELDS = ['firstName', 'lastName', 'euResident', 'advances']
